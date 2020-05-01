@@ -1,0 +1,49 @@
+
+
+1.) csv2libsvm.py
+	This python file is used to convert the input training file(ocp_training.csv) to the libsvm format.
+	
+	python csv2libsvm.py Input_file_name Output_file_name Label_INDEX Header_presence
+	
+	Argument 1) Input_file_name is the name of the input .csv file that you want to convert
+	Argument 2) The new name you want to give to the converted file
+	Argument 3) Label_INDEX is the column number of the target value. Like its 0 in our case 
+	Argument 4) If headers are present write True else False. In our input file, first row has headers-like label,pixel0,pixel1 like that
+			so we use True
+			
+	Example--
+	
+		python ocp_training.csv libsvmtrain.data 0 True
+		
+		
+2) convert_test.py
+
+	This python file is used to convert the given testing file(ocp_testing.csv) into the format required by libsvm.
+	We append a Zero in the first column of this file.
+	
+	python convert_test.py Input_testing_file Output_file_name Header_presence
+	
+	Argument 1) Name of testing file given (ocp_testing.csv)
+	Argument 2) New name of testing file
+	Argument 3) Header present then write True otherwise False
+	
+	Example-		
+	python convert_test.py ocp_testing.csv libsvmtest.data True
+	
+	
+
+3) combine_input_output.py
+	
+	This python file is used to append sampleoutput.csv data in the first column of sampleinput.csv and then convert the combine file 		into libsvm suitable format.  				
+	
+	python combine_input_output.py sampleinput.csv outin sampleoutput.csv Column_INDEX Header_Presence
+	
+	Argument 1) sampleinput.csv - name of input file
+	Argument 2) New name of combined file-- outin (in our case)
+	Argument 3) sampleoutput.csv - name of output file
+	Argument 4) Column_INDEX - column of sampleoutput.csv that you want to append (Here only one column in sampleoutput.csv so GIVE 0)
+	Argument 5) Headers present so True
+	
+	Example
+	
+	python combine_input_output.py sampleinput.csv outin sampleoutput.csv 0 True
